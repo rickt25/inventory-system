@@ -26134,7 +26134,7 @@ table.dataTable
 {
     margin-bottom: 1.25rem !important;
 
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef !important;
 }
 table.dataTable tbody > tr.selected
 {

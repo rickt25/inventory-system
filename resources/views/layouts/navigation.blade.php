@@ -19,7 +19,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="icons.html">
+              <a class="nav-link" href="{{ route('category.index') }}">
                 <i class="ni ni-tag text-orange"></i>
                 <span class="nav-link-text">Categories</span>
               </a>

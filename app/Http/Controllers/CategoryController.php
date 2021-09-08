@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Html\Builder;
+use App\Http\Requests\CategoryRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class CategoryController extends Controller
 {
@@ -14,7 +17,16 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        if(request()->ajax()){
+            $categories = Category::query();
+            
+            return DataTables::eloquent($categories)
+                            ->addIndexColumn()
+                            ->addColumn('action', 'category.action')
+                            ->toJson();
+        }
+
+        return view('category.index');
     }
 
     /**
@@ -33,9 +45,12 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+        Category::create($request->only('name'));
+        return response()->json([
+            'message' => 'Berhasil simpan kategori'
+        ]);
     }
 
     /**
@@ -67,9 +82,12 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        //
+        $category->update($request()->only('name'));
+        return response()->json([
+            'message' => 'Berhasil edit kategori'
+        ]);
     }
 
     /**
@@ -80,6 +98,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return response()->json([
+            'message' => 'Berhasil hapus kategori'
+        ]);
     }
 }

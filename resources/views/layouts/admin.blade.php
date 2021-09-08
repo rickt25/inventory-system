@@ -15,7 +15,7 @@
 
         <!-- Icons -->
         <link rel="stylesheet" href="{{ asset('vendor/nucleo/css/nucleo.css') }}" type="text/css">
-        <link rel="stylesheet" href="{{ asset('assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css"> 
+        <link rel="stylesheet" href="{{ asset('vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css"> 
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/argon.css?v=1.2.0') }}" type="text/css">
@@ -23,6 +23,9 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+
+        <!-- Plugins -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -48,5 +51,7 @@
         <script src="{{ asset('vendor/chart.js/dist/Chart.extension.js') }}"></script>
         <!-- Argon JS -->
         <script src="{{ asset('js/argon.js?v=1.2.0') }}"></script>
+
+        {{ $script ?? '' }}
     </body>
 </html>

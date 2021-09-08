@@ -1,5 +1,4 @@
 <x-app-layout>
-
     <x-header-title title='Dashboard'>
         <!-- Card stats -->
         <div class="row">
