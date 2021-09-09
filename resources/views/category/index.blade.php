@@ -1,5 +1,10 @@
 <x-app-layout>
-  <x-header-title title='Category' />
+  <x-header-title title="Category" route="category">
+    <div class="col-lg-6 col-5 text-right">
+      <a href="#" class="btn btn-sm btn-neutral">New</a>
+      <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+    </div>
+  </x-header-title>
 
   <!-- CONTENT -->
   <div class="container-fluid mt--6">
@@ -36,7 +41,7 @@
     <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/plug-ins/1.10.25/dataRender/ellipsis.js"></script>
-
+    <script src="{{ asset('js/components/datatable/custom.js') }}"></script>
     <script>
       $(() => {
         var datatable = $("#tableCategory").DataTable({
@@ -44,7 +49,8 @@
           serverSide: true,
           lengthChange: false,
           searchable: false,
-          bFilter: false,
+          bFilter: true,
+          pageLength: 8,
           ajax: '{!! url()->current() !!}',
           order: [[ 1, "desc" ]],
           columns: [
@@ -67,18 +73,8 @@
                 searchable: false
               }
           ],
-          drawCallback: function(settings) {
-            $("#tableCategory_previous .page-link").html(`
-              <i class="fas fa-angle-left"></i>
-              <span class="sr-only">Previous</span>
-            `);
-
-            $("#tableCategory_next .page-link").html(`
-              <i class="fas fa-angle-right"></i>
-              <span class="sr-only">Next</span>
-            `);
-
-            $("#tableCategory_paginate .pagination .paginate_button").removeClass('paginate_button');
+          drawCallback: function(settings){
+            customSettings(datatable);
           }
         });
       });

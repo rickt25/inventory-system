@@ -21,6 +21,6 @@ Route::get('/', function () {
 require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function () {
-    Route::view('/dashboard', 'dashboard');
+    Route::view('/dashboard', 'dashboard')->name('dashboard');
     Route::resource('/category', CategoryController::class);
 });

@@ -7,12 +7,10 @@
         </div>
         @isset($route)
         <div class="col-lg-6 col-5 text-right">
-          <a href="{{ route($route . '.create') }}" class="btn btn-sm btn-neutral">Tambah data</a>
+          <a href="{{ route($route . '.create') }}" class="btn btn-sm btn-neutral">Add new {{ $title }}</a>
         </div>
         @endisset
       </div>
-
-      {{ $slot }}
     </div>
   </div>
 </div>
