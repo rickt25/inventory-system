@@ -1,10 +1,5 @@
 <x-app-layout>
-  <x-header-title title="Category" route="category">
-    <div class="col-lg-6 col-5 text-right">
-      <a href="#" class="btn btn-sm btn-neutral">New</a>
-      <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-    </div>
-  </x-header-title>
+  <x-header-title title="Category" modal="categoryModal"/>
 
   <!-- CONTENT -->
   <div class="container-fluid mt--6">
@@ -33,6 +28,16 @@
       </div>
     </div>
   </div>
+
+  <x-modal title="Add Category" id="categoryModal">
+    <form id="categoryForm" action="{{ route('category.store') }}" method="POST">
+      @csrf
+      <div class="form-group">
+        <label class="form-control-label" for="basic-url">Category Name</label>
+        <input type="text" class="form-control" placeholder="name">
+      </div>
+    </form>
+  </x-modal>
 
   <x-slot name="script">
     <!-- DataTables -->

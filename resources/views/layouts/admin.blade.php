@@ -18,8 +18,8 @@
         <link rel="stylesheet" href="{{ asset('vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css"> 
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/argon.css?v=1.2.0') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/argon.css?v=1.2.0') }}" type="text/css">
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -35,7 +35,7 @@
             <main class="main-content" id="panel">
                 @include('layouts.top-navigation')
 
-                {{ $slot }}
+                {{ $slot }} 
             </main>
         </div>
 

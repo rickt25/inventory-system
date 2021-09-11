@@ -5,9 +5,9 @@
         <div class="col-lg-6 col-7">
           <h6 class="h2 text-white d-inline-block mb-0">{{ $title }}</h6>
         </div>
-        @isset($route)
+        @isset($modal)
         <div class="col-lg-6 col-5 text-right">
-          <a href="{{ route($route . '.create') }}" class="btn btn-sm btn-neutral">Add new {{ $title }}</a>
+          <a class="btn btn-sm btn-neutral"  data-toggle="modal" data-target="#{{ $modal }}">Add new {{ $title }}</a>
         </div>
         @endisset
       </div>
