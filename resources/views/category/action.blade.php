@@ -4,7 +4,7 @@
       <i class="fas fa-ellipsis-v"></i>
     </a>
     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-      <a class="dropdown-item" href="#">Edit</a>
+      <a class="dropdown-item" data-toggle="modal" data-target="#editCategoryModal">Edit</a>
       <a class="dropdown-item" href="#">Delete</a>
     </div>
   </div>

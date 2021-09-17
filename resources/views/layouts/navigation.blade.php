@@ -19,7 +19,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link @if(request()->routeIs('category.*')) active @endif" href="{{ route('category.index') }}">
+              <a class="nav-link @if(request()->routeIs('category')) active @endif" href="{{ route('category') }}">
                 <i class="ni ni-tag text-orange"></i>
                 <span class="nav-link-text">Categories</span>
               </a>

@@ -1,5 +1,9 @@
 <x-app-layout>
-  <x-header-title title="Category" modal="categoryModal"/>
+  <x-header-title title="Category">
+    <div class="col-lg-6 col-5 text-right">
+      <a class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#createCategoryModal">Add New Category</a>
+    </div>
+  </x-header-title>
 
   <!-- CONTENT -->
   <div class="container-fluid mt--6">
@@ -29,61 +33,7 @@
     </div>
   </div>
 
-  <x-modal title="Add Category" id="categoryModal">
-    <form id="categoryForm" action="{{ route('category.store') }}" method="POST">
-      @csrf
-      <div class="form-group">
-        <label class="form-control-label" for="basic-url">Category Name</label>
-        <input type="text" class="form-control" placeholder="name">
-      </div>
-    </form>
-  </x-modal>
-
   <x-slot name="script">
-    <!-- DataTables -->
-    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/plug-ins/1.10.25/dataRender/ellipsis.js"></script>
-    <script src="{{ asset('js/components/datatable/custom.js') }}"></script>
-    <script>
-      $(() => {
-        var datatable = $("#tableCategory").DataTable({
-          processing: true,
-          serverSide: true,
-          lengthChange: false,
-          searchable: false,
-          bFilter: true,
-          pageLength: 8,
-          ajax: '{!! url()->current() !!}',
-          order: [[ 1, "desc" ]],
-          columns: [
-              {
-                data: 'DT_RowIndex',
-                name: 'DT_RowIndex',
-                width: '1%',
-                orderable: false,
-                searchable: false
-              },
-              { 
-                data: 'name', 
-                name: 'name' 
-              },
-              { 
-                data: 'action', 
-                name: 'action',
-                width: '1%',
-                orderable: false,
-                searchable: false
-              }
-          ],
-          drawCallback: function(settings){
-            customSettings(datatable);
-          }
-        });
-      });
 
-    </script>
   </x-slot>
 </x-app-layout>
