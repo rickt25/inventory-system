@@ -59,20 +59,20 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <x-modal title="Delete Category" id="deleteModal">
-    <div class="modal-body">
-        Are you sure you want to delete this ?
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-danger" wire:click="delete()" data-dismiss="modal">Delete</button>
-    </div>
-  </x-modal>
+    <x-modal :title="$form ? 'Edit Category Modal' : 'Add Category Modal'" id="formModal">
+      <livewire:forms.category-form key='{{ now() }}' :category='$form' /> 
+    </x-modal>
   
-  <x-modal :title="$form ? 'Edit Category Modal' : 'Add Category Modal'" id="formModal">
-    <livewire:forms.category-form key='{{ now() }}' :category='$form' /> 
-  </x-modal>
-  
+    <x-modal title="Delete Category" id="deleteModal">
+      <div class="modal-body">
+          Are you sure you want to delete this ?
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger" wire:click="delete()" data-dismiss="modal">Delete</button>
+      </div>
+    </x-modal>
+    
+  </div>
 </div>
