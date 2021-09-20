@@ -36,6 +36,11 @@
         <label class="form-control-label" for="basic-url">Category Name</label>
         <input type="text" class="form-control" placeholder="name">
       </div>
+
+      <div class="text-right">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </form>
   </x-modal>
 
