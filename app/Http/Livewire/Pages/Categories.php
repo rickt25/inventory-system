@@ -12,6 +12,7 @@ class Categories extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
+    public Category $confirmDelete;
     public $form;
     public $search;
     public $sortField = 'name';
@@ -27,8 +28,12 @@ class Categories extends Component
         $this->form = $category;
     }
 
-    public function delete(Category $category){
-        $category->delete();
+    public function confirmDelete(Category $category){
+        $this->confirmDelete = $category;
+    }
+
+    public function delete(){
+        $this->confirmDelete->delete();
         $this->emitSelf('refresh');
     }
 
