@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Pages\Products;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Pages\Categories;
 use App\Http\Controllers\CategoryController;
@@ -24,4 +25,5 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
     Route::get('category', Categories::class)->name('category');
+    Route::get('product', Products::class)->name('product');
 });

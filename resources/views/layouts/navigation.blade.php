@@ -25,7 +25,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="map.html">
+              <a class="nav-link @if(request()->routeIs('category')) active @endif" href="{{ route('product') }}">
                 <i class="ni ni-bag-17 text-primary"></i>
                 <span class="nav-link-text">Products</span>
               </a>

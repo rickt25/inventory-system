@@ -15,8 +15,6 @@ class Categories extends Component
     public Category $confirmDelete;
     public $form;
     public $search;
-    public $sortField = 'name';
-    public $sortDirection = 'asc';
 
     protected $listeners = ['refresh' => '$refresh'];
 
@@ -40,7 +38,6 @@ class Categories extends Component
     public function render()
     {
         $categories = Category::search('name', $this->search)
-                                ->orderBy($this->sortField, $this->sortDirection)
                                 ->paginate(8);
 
         return view('livewire.pages.categories', [
