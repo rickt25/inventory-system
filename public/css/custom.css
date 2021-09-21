@@ -1,0 +1,8 @@
+.table-hover tr .edit-icon {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.table-hover tr:hover .edit-icon {
+  opacity: 0.3;
+}

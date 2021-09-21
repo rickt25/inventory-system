@@ -18,11 +18,13 @@
             </div>
             <!-- Light table -->
             <div class="mb-2">
-              <table class="table w-100 align-items-center" id="tableCategory" wire:loading.class.delay='text-gray'>
+              <table class="table table-hover w-100 align-items-center" id="tableCategory" wire:loading.class.delay='text-gray'>
                 <thead class="thead-light">
                   <tr>
                     <th scope="col" class="sort" data-sort="index">No</th>
                     <th scope="col" class="sort" data-sort="nama">Nama</th>
+                    <th scope="col" class="sort" data-sort="brand">Brand</th>
+                    <th scope="col" class="sort" data-sort="stock">Stock</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -31,6 +33,11 @@
                     <tr>
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $product->name }}</td>
+                      <td>{{ $product->brand }}</td>
+                      <td>
+                        {{ $product->stock }}
+                        <i class="fas fa-pencil-alt edit-icon ml-2"></i>
+                      </td>
                       <td class="text-right">
                         <div class="dropdown">
                           <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
