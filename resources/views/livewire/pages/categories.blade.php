@@ -1,4 +1,5 @@
 <div>
+  
   <x-top-navigation>
     <input class="form-control" wire:model.debounce.500ms="search" placeholder="Search" type="text" id="searchBar">
   </x-top-navigation>
@@ -39,7 +40,6 @@
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                           <button class="dropdown-item" wire:click="edit({{ $category }})" data-toggle="modal" data-target="#formModal">Edit</button>
                           <button class="dropdown-item" wire:click="confirmDelete({{ $category }})" data-toggle="modal" data-target="#deleteModal">Delete</button>
-                          {{-- <button class="dropdown-item" wire:click="delete({{ $category }})">Delete</button> --}}
                         </div>
                       </div>
                     </td>
@@ -54,6 +54,7 @@
           </div>
           
           <!-- Card footer -->
+          <!-- This is pagination -->
           {{ $categories->links() }}
           
         </div>
