@@ -19,6 +19,7 @@ class Products extends Component
     public function render()
     {
         $products = Product::search('name', $this->search)
+                                ->with(['brand', 'category'])
                                 ->paginate($this->paginateCount);
 
         return view('livewire.pages.products', [

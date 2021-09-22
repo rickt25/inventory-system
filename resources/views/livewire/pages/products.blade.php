@@ -24,6 +24,7 @@
                     <th scope="col" class="sort" data-sort="index">No</th>
                     <th scope="col" class="sort" data-sort="nama">Nama</th>
                     <th scope="col" class="sort" data-sort="brand">Brand</th>
+                    <th scope="col" class="sort" data-sort="kategori">Kategori</th>
                     <th scope="col" class="sort" data-sort="stock">Stock</th>
                     <th></th>
                   </tr>
@@ -33,7 +34,8 @@
                     <tr>
                       <td>{{ $loop->iteration + $paginateCount * ($page - 1) }}</td>
                       <td>{{ $product->name }}</td>
-                      <td>{{ $product->brand }}</td>
+                      <td>{{ $product->brand->name ?? "-" }}</td>
+                      <td>{{ $product->category->name ?? "-" }}</td>
                       <td>
                         {{ $product->stock }}
                         <i class="fas fa-pencil-alt edit-icon ml-2"></i>
