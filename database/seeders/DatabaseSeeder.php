@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PermissionSeeder::class,
             UserSeeder::class,
+            UnitSeeder::class,
+            BrandSeeder::class,
             CategorySeeder::class,
             ProductSeeder::class
         ]);

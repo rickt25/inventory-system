@@ -14,6 +14,17 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::factory(20)->create();
+        $categories = [
+            'Kabel',
+            'Pipa',
+            'Lampu LED',
+            'Lampu Tidur',
+        ];
+
+        foreach($categories as $category){
+            Category::create([
+                'name' => $category,
+            ]);
+        }
     }
 }
