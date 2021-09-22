@@ -4,7 +4,7 @@
     </x-top-navigation>
   
     <x-header-title title="Product">
-      <button class="btn btn-sm btn-neutral" wire:click="create" data-toggle="modal" data-target="#formModal">Add New Product</button>
+      <a href="{{ route('product.create') }}" class="btn btn-sm btn-neutral" >Add New Product</a>
     </x-header-title>
   
     <!-- CONTENT -->

@@ -6,3 +6,21 @@
 .table-hover tr:hover .edit-icon {
   opacity: 0.3;
 }
+
+.img-squared {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.wrap-column {
+  white-space: nowrap;
+  width: 1%;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

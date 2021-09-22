@@ -54,7 +54,6 @@
           </div>
           
           <!-- Card footer -->
-          <!-- This is pagination -->
           {{ $categories->links() }}
           
         </div>

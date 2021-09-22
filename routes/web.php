@@ -3,6 +3,7 @@
 use App\Http\Livewire\Pages\Products;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Pages\Categories;
+use App\Http\Livewire\Forms\ProductForm;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -26,4 +27,5 @@ Route::middleware(['auth'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
     Route::get('category', Categories::class)->name('category');
     Route::get('product', Products::class)->name('product');
+    Route::get('product/create', ProductForm::class)->name('product.create');
 });
