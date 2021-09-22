@@ -11,6 +11,7 @@ class Categories extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    public $paginateCount = 8;
 
     public Category $confirmDelete;
     public $form;
@@ -38,7 +39,7 @@ class Categories extends Component
     public function render()
     {
         $categories = Category::search('name', $this->search)
-                                ->paginate(8);
+                                ->paginate($this->paginateCount);
 
         return view('livewire.pages.categories', [
             'categories' => $categories

@@ -30,7 +30,7 @@
               <tbody class="list">
                 @forelse ($categories as $category)
                   <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $loop->iteration + $paginateCount * ($page-1) }}</td>
                     <td>{{ $category->name }}</td>
                     <td class="text-right">
                       <div class="dropdown">

@@ -31,7 +31,7 @@
                 <tbody class="list">
                   @forelse ($products as $product)
                     <tr>
-                      <td>{{ $loop->iteration }}</td>
+                      <td>{{ $loop->iteration + $paginateCount * ($page - 1) }}</td>
                       <td>{{ $product->name }}</td>
                       <td>{{ $product->brand }}</td>
                       <td>

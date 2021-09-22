@@ -10,6 +10,7 @@ class Products extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    public $paginateCount = 8;
 
     public $search;
 
@@ -18,7 +19,7 @@ class Products extends Component
     public function render()
     {
         $products = Product::search('name', $this->search)
-                                ->paginate(8);
+                                ->paginate($this->paginateCount);
 
         return view('livewire.pages.products', [
             'products' => $products
