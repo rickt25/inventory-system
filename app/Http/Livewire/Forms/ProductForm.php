@@ -28,6 +28,11 @@ class ProductForm extends Component
         'product.description' => 'description',
     ];
 
+    public function mount(){
+        $this->product = new Product();
+        $this->product->stock = 0;
+    }
+
     public function submit(){
         $data = $this->validate()['product'];
 
@@ -35,11 +40,8 @@ class ProductForm extends Component
             ['id' => $this->product->id ?? null],
             $data
         );
-    }
 
-    public function mount(){
-        $this->product = new Product();
-        $this->product->stock = 0;
+        return redirect()->route('product');
     }
 
     public function render()

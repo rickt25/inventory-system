@@ -91,30 +91,7 @@
 
                   <div class="row mt-3">
                     <div class="col-6">
-                      <div class="d-flex justify-content-between my-2 px-1">
-                        <h4>Variants</h4>
-                        <button class="btn btn-info btn-sm" title="Add variant">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </div>
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th>Name</th>
-                            <th></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td class="line-clamp">lorem10</td>
-                            <td class="wrap-column px-1">
-                              <button class="btn btn-sm btn-success mr-0" title="Edit"><i class="fas fa-pencil-alt"></i></button>
-                              <button button class="btn btn-sm btn-danger" title="Delete"><i class="fas fa-trash"></i></button></span> </li>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      
+                      <livewire:forms.variant-form />
                     </div>
                     <div class="col-6">
                       <div class="d-flex justify-content-between my-2 px-1">
