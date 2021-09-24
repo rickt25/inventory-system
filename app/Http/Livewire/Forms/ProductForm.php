@@ -36,10 +36,12 @@ class ProductForm extends Component
     public function submit(){
         $data = $this->validate()['product'];
 
-        Product::updateOrCreate(
+        $product = Product::updateOrCreate(
             ['id' => $this->product->id ?? null],
             $data
         );
+
+        $this->emit('createdProduct', $product->id);
 
         return redirect()->route('product');
     }

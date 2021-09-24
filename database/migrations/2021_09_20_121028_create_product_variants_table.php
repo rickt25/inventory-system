@@ -20,8 +20,8 @@ class CreateProductVariantsTable extends Migration
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
             $table->string('name');
-            $table->integer('stock');
-            $table->text('description');
+            // $table->integer('stock');
+            // $table->text('description');
             $table->timestamps();
         });
     }

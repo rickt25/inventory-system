@@ -46,21 +46,19 @@
       @endforelse
 
       @if($createMode)
-        <div>
-          <tr>
-            <td>
-              <input class="form-control form-control-sm" wire:model="newVariant" type="text" placeholder="Name">
-            </td>
-              <td>
-                <button type="submit" class="btn btn-primary btn-sm mr-0" wire:click="addVariant">
-                  <i class="fas fa-check"></i>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" wire:click="resetModes">
-                  <i class="fas fa-times"></i>
-                </button>
-              </td>
-          </tr>
-        </div>
+        <tr>
+          <td>
+            <input class="form-control form-control-sm" wire:model="newVariant" type="text" placeholder="Name">
+          </td>
+          <td class="wrap-column px-1">
+            <button type="submit" class="btn btn-primary btn-sm mr-0" wire:click="addVariant">
+              <i class="fas fa-check"></i>
+            </button>
+            <button type="button" class="btn btn-danger btn-sm" wire:click="resetModes">
+              <i class="fas fa-times"></i>
+            </button>
+          </td>
+        </tr>
       @endif
     </tbody>
   </table>

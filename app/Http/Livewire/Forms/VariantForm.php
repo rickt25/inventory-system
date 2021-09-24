@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Forms;
 
+use App\Models\Product;
 use Livewire\Component;
 use App\Models\ProductVariant;
 use Illuminate\Validation\Rule;
@@ -15,7 +16,10 @@ class VariantForm extends Component
     public string $editVariant = "";
     public array $variants = [];
 
-    protected $listeners = ['refresh' => '$refresh'];
+    protected $listeners = [
+        'refresh' => '$refresh',
+        'createdProduct' => 'saveVariant'
+    ];
 
     public function rules(){
         return  [
@@ -28,6 +32,15 @@ class VariantForm extends Component
                 Rule::notIn(array_column($this->variants, 'name'))
             ]
         ];
+    }
+
+    public function saveVariant($productId){
+        foreach($this->variants as $variant){
+            ProductVariant::create([
+                'product_id' => $productId,
+                'name' => $variant['name']
+            ]);
+        }
     }
 
     public function addVariant(){
