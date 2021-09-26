@@ -40,6 +40,7 @@
         <!-- Argon Scripts -->
         <!-- Core -->
         <script src="{{ asset('vendor/jquery/dist/jquery.min.js') }}"></script>
+        <script src="{{ asset('vendor/jquery/dist/jquery.mask.js') }}"></script>
         <script src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('vendor/js-cookie/js.cookie.js') }}"></script>
         <script src="{{ asset('vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
@@ -51,8 +52,10 @@
         <script src="{{ asset('js/argon.js?v=1.2.0') }}"></script>
         <!-- Custom modal actions -->
         <script src="{{ asset('js/modal.js') }}"></script>
-
+        <!-- Masking Inputs -->
+        
         <livewire:scripts />
         {{ $script ?? '' }}
+        <script src="{{ asset('js/mask.js') }}"></script>
     </body>
 </html>

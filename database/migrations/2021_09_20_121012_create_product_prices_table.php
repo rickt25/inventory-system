@@ -19,9 +19,10 @@ class CreateProductPricesTable extends Migration
                     ->constrained()
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
+            $table->foreignId('unit_id')
+                    ->constrained();
             $table->decimal('price');
             $table->integer('per_qty');
-            $table->string('unit');
             $table->timestamps();
         });
     }

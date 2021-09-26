@@ -18,7 +18,7 @@ class VariantForm extends Component
 
     protected $listeners = [
         'refresh' => '$refresh',
-        'createdProduct' => 'saveVariant'
+        'saveVariant'
     ];
 
     public function rules(){
@@ -41,6 +41,8 @@ class VariantForm extends Component
                 'name' => $variant['name']
             ]);
         }
+
+        $this->resetModes();
     }
 
     public function addVariant(){

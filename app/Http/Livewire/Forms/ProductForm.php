@@ -41,7 +41,8 @@ class ProductForm extends Component
             $data
         );
 
-        $this->emit('createdProduct', $product->id);
+        $this->emit('saveVariant', $product->id);
+        $this->emit('savePrice', $product->id);
 
         return redirect()->route('product');
     }
