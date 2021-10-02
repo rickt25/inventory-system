@@ -47,7 +47,7 @@
                           </a>
                           <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                             <button class="dropdown-item" wire:click="edit({{ $product }})" data-toggle="modal" data-target="#formModal">Edit</button>
-                            <button class="dropdown-item" wire:click="confirmDelete({{ $product }})" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                            <button class="dropdown-item" wire:click="confirmDelete({{ $product->id }})" data-toggle="modal" data-target="#deleteModal">Delete</button>
                           </div>
                         </div>
                       </td>
@@ -67,6 +67,16 @@
           </div>
         </div>
       </div>
-      
+    
+      <x-modal title="Delete Category" id="deleteModal">
+        <div class="modal-body">
+            Are you sure you want to delete this ?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-danger" wire:click="delete()" data-dismiss="modal">Delete</button>
+        </div>
+      </x-modal>
+
     </div>
   </div>

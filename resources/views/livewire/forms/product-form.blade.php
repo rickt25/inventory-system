@@ -99,13 +99,30 @@
                   </div>
                 </div>
                 <div class="col-4">
-                  <img class="float-right img-thumbnail img-squared rounded" src="{{ asset('assets/img/default/product.png') }}" alt="">
+                  
+                  @if($image && !$errors->has('image'))
+                    <img class="float-right img-thumbnail rounded mb-3" src="{{ $image->temporaryUrl() }}" alt="">
+                  @else
+                    <img class="float-right img-thumbnail rounded mb-3" src="{{ asset('assets/img/default/product.png') }}" alt="">
+                  @endif
+                  
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input @error('image') is-invalid @enderror" id="image" wire:model='image'>
+                    @error('image')
+                      <span class="invalid-feedback">
+                          {{ $message }}
+                      </span>
+                    @enderror
+
+                    <label class="custom-file-label" for="image">Select file</label>
+                    
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
+      <button class="btn btn-primary" wire:click='ddbutton'>DD me</button>
     </div>
   </div>

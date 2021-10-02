@@ -12,14 +12,24 @@ class Products extends Component
     protected $paginationTheme = 'bootstrap';
     public $paginateCount = 8;
 
+    public Product $confirmDelete;
     public $search;
 
     protected $listeners = ['refresh' => '$refresh'];
 
+    public function confirmDelete($productId){
+        $this->confirmDelete = Product::find($productId);
+    }
+
+    public function delete(){
+        $this->confirmDelete->delete();
+        $this->emitSelf('refresh');
+    }
+
     public function render()
     {
         $products = Product::search('name', $this->search)
-                                ->with(['brand', 'category'])
+                                // ->with(['brand', 'category'])
                                 ->paginate($this->paginateCount);
 
         return view('livewire.pages.products', [
