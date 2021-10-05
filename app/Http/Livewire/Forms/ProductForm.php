@@ -13,7 +13,7 @@ class ProductForm extends Component
 {
     use WithFileUploads;
     
-    public $increment = 0;
+    public string $title = "Add Product";
     public Product $product;
     public $image;
 
@@ -36,13 +36,14 @@ class ProductForm extends Component
         $this->validateOnly('image');
     }
 
-    public function ddbutton(){
-        dd($this->image->store('images','public'));
-    }
-
-    public function mount(){
-        $this->product = new Product();
-        $this->product->stock = 0;
+    public function mount(Product $product){
+        if(!$product->exists){
+            $this->product = new Product();
+            $this->product->stock = 0;
+            return;
+        }
+        $this->title = "Edit Product";
+        $this->product = $product;
     }
 
     public function submit(){
@@ -65,7 +66,6 @@ class ProductForm extends Component
 
     public function render()
     {
-        
         $categories = Category::all();
         $brands = Brand::all();
         $units = Unit::all();

@@ -3,7 +3,7 @@
       <input class="form-control" wire:model.debounce.500ms="search" placeholder="Search" type="text" id="searchBar">
     </x-top-navigation>
   
-    <x-header-title title="Create Product">
+    <x-header-title :title="$title">
       <a href="{{ route('product') }}" class="btn btn-sm btn-default">
         <i class="fas fa-angle-double-left"></i>
         Back
@@ -91,10 +91,10 @@
 
                   <div class="row mt-3">
                     <div class="col-5">
-                      <livewire:forms.variant-form />
+                      <livewire:forms.variant-form :productId="$product->id" />
                     </div>
                     <div class="col-7">
-                      <livewire:forms.price-form />
+                      <livewire:forms.price-form :productId="$product->id" />
                     </div>
                   </div>
                 </div>
@@ -103,7 +103,7 @@
                   @if($image && !$errors->has('image'))
                     <img class="float-right img-thumbnail rounded mb-3" src="{{ $image->temporaryUrl() }}" alt="">
                   @else
-                    <img class="float-right img-thumbnail rounded mb-3" src="{{ asset('assets/img/default/product.png') }}" alt="">
+                    <img class="float-right img-thumbnail rounded mb-3" src="{{ $product->image ? asset('storage/' . $product->image) : asset('assets/img/default/product.png') }}" alt="">
                   @endif
                   
                   <div class="custom-file">

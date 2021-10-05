@@ -14,13 +14,11 @@ class PriceForm extends Component
     public array $newPrice = [
         'price' => '',
         'per_qty' => 1,
-        'unit' => '',
         'unit_id' => 1,
     ];
     public array $editPrice = [
         'price' => '',
         'per_qty' => 1,
-        'unit' => '',
         'unit_id' => 1,
     ];
     public array $prices = [];
@@ -29,6 +27,13 @@ class PriceForm extends Component
         'refresh' => '$refresh',
         'savePrice'
     ];
+
+    public function mount($productId){
+        $this->prices = ProductPrice::where('product_id', $productId)->get()->toArray();
+        foreach($this->prices as $idx => $price){
+            $this->prices[$idx]['unit'] = Unit::find($price['unit_id'])->name;
+        }
+    }
 
     public function savePrice($productId){
         foreach($this->prices as $price){

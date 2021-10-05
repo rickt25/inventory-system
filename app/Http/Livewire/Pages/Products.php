@@ -22,14 +22,13 @@ class Products extends Component
     }
 
     public function delete(){
-        $this->confirmDelete->delete();
+        $this->confirmDelete->forceDelete();;
         $this->emitSelf('refresh');
     }
 
-    public function render()
-    {
+    public function render(){
         $products = Product::search('name', $this->search)
-                                // ->with(['brand', 'category'])
+                                ->with(['brand', 'category'])
                                 ->paginate($this->paginateCount);
 
         return view('livewire.pages.products', [

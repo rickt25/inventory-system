@@ -34,6 +34,10 @@ class VariantForm extends Component
         ];
     }
 
+    public function mount($productId){
+        $this->variants = ProductVariant::where('product_id', $productId)->get()->toArray();
+    }
+
     public function saveVariant($productId){
         foreach($this->variants as $variant){
             ProductVariant::create([

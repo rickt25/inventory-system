@@ -28,4 +28,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('category', Categories::class)->name('category');
     Route::get('product', Products::class)->name('product');
     Route::get('product/create', ProductForm::class)->name('product.create');
+    Route::get('product/edit/{product}', ProductForm::class)->name('product.edit');
 });

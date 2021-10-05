@@ -46,7 +46,7 @@
                             <i class="fas fa-ellipsis-v"></i>
                           </a>
                           <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                            <button class="dropdown-item" wire:click="edit({{ $product }})" data-toggle="modal" data-target="#formModal">Edit</button>
+                            <a class="dropdown-item" href="{{ route('product.edit', $product) }}">Edit</a>
                             <button class="dropdown-item" wire:click="confirmDelete({{ $product->id }})" data-toggle="modal" data-target="#deleteModal">Delete</button>
                           </div>
                         </div>

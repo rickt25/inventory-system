@@ -54,7 +54,7 @@
             <td>{{ $price['per_qty'] }} / {{ $price['unit'] }}</td>
             <td class="wrap-column px-1">
               <button class="btn btn-sm btn-success mr-0" title="Edit" wire:click="showEditForm({{ $loop->index }})"><i class="fas fa-pencil-alt"></i></button>
-              <button button class="btn btn-sm btn-danger" title="Delete" wire:click="deleteVariant({{ $loop->index }})"><i class="fas fa-trash"></i></button></span> </li>
+              <button button class="btn btn-sm btn-danger" title="Delete" wire:click="deletePrice({{ $loop->index }})"><i class="fas fa-trash"></i></button></span> </li>
             </td>
           </tr>
         @endif
